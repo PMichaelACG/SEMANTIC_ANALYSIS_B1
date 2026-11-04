@@ -1,0 +1,541 @@
+[
+  {
+    "id": "basic_let",
+    "input": "let x = 1;",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "sequence",
+    "input": "let x=1; x=x+2; print(x);",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "precedence",
+    "input": "let x=1+2*3-8/2%3;",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "unary",
+    "input": "let x=-1 + +2 * --3;",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "grouping",
+    "input": "print((1+2)*(3-4));",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "empty_block",
+    "input": "{}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "block_sequence",
+    "input": "{let x=1; {print(x);}}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "if_only",
+    "input": "if (x < 4) { x=x+1; }",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "if_else",
+    "input": "if (x==0) {} else {print(x);}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "nested_if",
+    "input": "if (a<b) {if (c!=d) {} else {}} else {}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "while",
+    "input": "while (x<=5) {x=x+1;}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "nested_while",
+    "input": "while(a>b) {while(c>=d) {c=c-1;}}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "all_relations",
+    "input": "if(a==b){} if(a!=b){} if(a<b){} if(a<=b){} if(a>b){} if(a>=b){}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "string",
+    "input": "print(\"hello world\");",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "empty_string",
+    "input": "print(\"\");",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "string_markers",
+    "input": "print(\"/* // let while for \\n\");",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "hex",
+    "input": "let x=0x2A+0Xf;",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "leading_zero",
+    "input": "let x=0007;",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "long_integer",
+    "input": "let x=999999999999999999999999999999999999;",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "comment",
+    "input": "/* start */ let/**/x=1;// done\n",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "comment_non_nesting",
+    "input": "/* first /* inside */ print(1);",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "crlf",
+    "input": "let x=1;\r\nprint(x);\r\n",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "tabs",
+    "input": "\tlet\tx=1;\t",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "semantics_deferred",
+    "input": "x=y/0; let x=1; let x=2; print(z);",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "reserved_prefix",
+    "input": "let while2=1; let for_each=2;",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "longer_expression",
+    "input": "print(a-b-c+d/e*f%g);",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "parenthesized_operands",
+    "input": "if((a+1)<(b*2)) {}",
+    "requirement": "I-SYNTAX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "comment_quotes",
+    "input": "/* \"quotes\" */ print(1);",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "line_comment_eof",
+    "input": "let x=1;// no final newline",
+    "requirement": "LEX",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "empty",
+    "input": "",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "comment_only",
+    "input": "// comment",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:11 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "missing_semicolon",
+    "input": "let x=1",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "missing_operand",
+    "input": "let x=;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "extra_semicolon",
+    "input": "let x=1;;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:9 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "missing_assign",
+    "input": "let x 1;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "literal_lhs",
+    "input": "1=x;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "keyword_identifier",
+    "input": "let while=1;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:5 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "trailing_identifier",
+    "input": "let x=1; extra",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:15 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "while_no_braces",
+    "input": "while(x<3) x=x+1;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:12 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "if_no_braces",
+    "input": "if(x<3) print(x);",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:9 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "else_no_if",
+    "input": "else {}",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "else_if",
+    "input": "if(a<b){} else if(c<d){}",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:16 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "bare_condition",
+    "input": "while(x){}",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "chained_comparison",
+    "input": "if(a<b<c){}",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "assignment_condition",
+    "input": "if(a=b){}",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:5 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "comparison_expression",
+    "input": "let x=a<b;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "missing_rparen",
+    "input": "print(1;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "extra_rparen",
+    "input": "print(1));",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:9 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "empty_print",
+    "input": "print();",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "print_no_parens",
+    "input": "print x;",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "unclosed_block",
+    "input": "while(a<b){",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:12 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "bare_unary",
+    "input": "print(-);",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "double_star",
+    "input": "print(1**2);",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:9 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "string_initializer",
+    "input": "let x=\"hi\";",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "adjacent_strings",
+    "input": "print(\"a\"\"b\");",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:10 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "string_plus",
+    "input": "print(\"a\"+1);",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:10 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "standalone_semicolon",
+    "input": ";",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "bad_crlf_location",
+    "input": "let x=1;\r\nprint();",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 2:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "bad_tab_location",
+    "input": "\tprint();",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "bad_cr_location",
+    "input": "\rprint();",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 1:8 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "eof_after_newline",
+    "input": "let x=\n",
+    "requirement": "I-REJECT",
+    "stderr": "PARSER_ERROR 2:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "unknown",
+    "input": "let x=@;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 unexpected character\n",
+    "status": 1
+  },
+  {
+    "id": "lone_bang",
+    "input": "if(a!b){}",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:5 unexpected character\n",
+    "status": 1
+  },
+  {
+    "id": "bad_decimal",
+    "input": "let x=12abc;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 invalid integer spelling\n",
+    "status": 1
+  },
+  {
+    "id": "float",
+    "input": "let x=3.14;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 invalid integer spelling\n",
+    "status": 1
+  },
+  {
+    "id": "leading_dot",
+    "input": "let x=.5;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 invalid integer spelling\n",
+    "status": 1
+  },
+  {
+    "id": "missing_hex_digits",
+    "input": "let x=0x;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 invalid integer spelling\n",
+    "status": 1
+  },
+  {
+    "id": "bad_hex",
+    "input": "let x=0x2G;",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 invalid integer spelling\n",
+    "status": 1
+  },
+  {
+    "id": "unterminated_comment",
+    "input": "let x=1; /*",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:10 unterminated block comment\n",
+    "status": 1
+  },
+  {
+    "id": "unterminated_string_eof",
+    "input": "print(\"hi",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 unterminated string\n",
+    "status": 1
+  },
+  {
+    "id": "unterminated_string_lf",
+    "input": "print(\"hi\n\");",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 unterminated string\n",
+    "status": 1
+  },
+  {
+    "id": "unterminated_string_crlf",
+    "input": "print(\"hi\r\n\");",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 unterminated string\n",
+    "status": 1
+  },
+  {
+    "id": "unterminated_string_cr",
+    "input": "print(\"hi\r\");",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:7 unterminated string\n",
+    "status": 1
+  },
+  {
+    "id": "first_lex_only",
+    "input": "@ #",
+    "requirement": "LEX-ERROR",
+    "stderr": "LEX_ERROR 1:1 unexpected character\n",
+    "status": 1
+  },
+  {
+    "id": "first_syntax_only",
+    "input": "print(); @",
+    "requirement": "FIRST-ERROR",
+    "stderr": "PARSER_ERROR 1:7 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "int_reserved",
+    "input": "int x;",
+    "requirement": "I-SCOPE",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  },
+  {
+    "id": "for_reserved",
+    "input": "for(i=0;i<2;i=i+1){}",
+    "requirement": "I-SCOPE",
+    "stderr": "PARSER_ERROR 1:1 syntax error\n",
+    "status": 1
+  }
+]

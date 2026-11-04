@@ -1,0 +1,1116 @@
+[
+  {
+    "id": "declaration_shape",
+    "input": "let total=12;",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Declaration: let",
+            [
+              [
+                "name",
+                [
+                  "Identifier: total",
+                  []
+                ]
+              ],
+              [
+                "initializer",
+                [
+                  "Integer: 12",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "spelling_preserved",
+    "input": "let total=00012;",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Declaration: let",
+            [
+              [
+                "name",
+                [
+                  "Identifier: total",
+                  []
+                ]
+              ],
+              [
+                "initializer",
+                [
+                  "Integer: 00012",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "precedence_shape",
+    "input": "print(1+2*3);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Binary: +",
+                  [
+                    [
+                      "left",
+                      [
+                        "Integer: 1",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Binary: *",
+                        [
+                          [
+                            "left",
+                            [
+                              "Integer: 2",
+                              []
+                            ]
+                          ],
+                          [
+                            "right",
+                            [
+                              "Integer: 3",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "parentheses_shape",
+    "input": "print((1+2)*3);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Binary: *",
+                  [
+                    [
+                      "left",
+                      [
+                        "Binary: +",
+                        [
+                          [
+                            "left",
+                            [
+                              "Integer: 1",
+                              []
+                            ]
+                          ],
+                          [
+                            "right",
+                            [
+                              "Integer: 2",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 3",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "left_association",
+    "input": "print(a-b-c);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Binary: -",
+                  [
+                    [
+                      "left",
+                      [
+                        "Binary: -",
+                        [
+                          [
+                            "left",
+                            [
+                              "Identifier: a",
+                              []
+                            ]
+                          ],
+                          [
+                            "right",
+                            [
+                              "Identifier: b",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: c",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "division_modulo",
+    "input": "print(8/2%3);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Binary: %",
+                  [
+                    [
+                      "left",
+                      [
+                        "Binary: /",
+                        [
+                          [
+                            "left",
+                            [
+                              "Integer: 8",
+                              []
+                            ]
+                          ],
+                          [
+                            "right",
+                            [
+                              "Integer: 2",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 3",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "unary_chain",
+    "input": "print(--x);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Unary: -",
+                  [
+                    [
+                      "operand",
+                      [
+                        "Unary: -",
+                        [
+                          [
+                            "operand",
+                            [
+                              "Identifier: x",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "unary_plus",
+    "input": "print(+x);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Unary: +",
+                  [
+                    [
+                      "operand",
+                      [
+                        "Identifier: x",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "empty_block_shape",
+    "input": "{}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Block",
+            []
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "nested_empty_blocks",
+    "input": "{{}}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Block",
+            [
+              [
+                "statement",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "empty_string_shape",
+    "input": "print(\"\");",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "String: ",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "text_payload",
+    "input": "print(\"hello\");",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "String: hello",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "literal_backslash",
+    "input": "print(\"\\N\");",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "String: \\N",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "hex_spelling",
+    "input": "print(0x2A);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Integer: 0x2A",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "unresolved_name",
+    "input": "print(missing);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Identifier: missing",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "assignment_shape",
+    "input": "x=1+2;",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Assign",
+            [
+              [
+                "target",
+                [
+                  "Identifier: x",
+                  []
+                ]
+              ],
+              [
+                "value",
+                [
+                  "Binary: +",
+                  [
+                    [
+                      "left",
+                      [
+                        "Integer: 1",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 2",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "if_without_else",
+    "input": "if(x<3){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: <",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: x",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 3",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "if_with_else",
+    "input": "if(x==1){print(x);}else{}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: ==",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: x",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 1",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  [
+                    [
+                      "statement",
+                      [
+                        "Print",
+                        [
+                          [
+                            "value",
+                            [
+                              "Identifier: x",
+                              []
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "else",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "while_shape",
+    "input": "while(i<3){i=i+1;}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "While",
+            [
+              [
+                "condition",
+                [
+                  "Binary: <",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: i",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 3",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "body",
+                [
+                  "Block",
+                  [
+                    [
+                      "statement",
+                      [
+                        "Assign",
+                        [
+                          [
+                            "target",
+                            [
+                              "Identifier: i",
+                              []
+                            ]
+                          ],
+                          [
+                            "value",
+                            [
+                              "Binary: +",
+                              [
+                                [
+                                  "left",
+                                  [
+                                    "Identifier: i",
+                                    []
+                                  ]
+                                ],
+                                [
+                                  "right",
+                                  [
+                                    "Integer: 1",
+                                    []
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_17",
+    "input": "if(a==b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: ==",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_18",
+    "input": "if(a!=b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: !=",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_19",
+    "input": "if(a<b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: <",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_20",
+    "input": "if(a<=b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: <=",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_21",
+    "input": "if(a>b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: >",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "relop_22",
+    "input": "if(a>=b){}",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "If",
+            [
+              [
+                "condition",
+                [
+                  "Binary: >=",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: a",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Identifier: b",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "then",
+                [
+                  "Block",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "statement_order",
+    "input": "let x=1;x=x+2;print(x);",
+    "tree": [
+      "Program",
+      [
+        [
+          "statement",
+          [
+            "Declaration: let",
+            [
+              [
+                "name",
+                [
+                  "Identifier: x",
+                  []
+                ]
+              ],
+              [
+                "initializer",
+                [
+                  "Integer: 1",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "statement",
+          [
+            "Assign",
+            [
+              [
+                "target",
+                [
+                  "Identifier: x",
+                  []
+                ]
+              ],
+              [
+                "value",
+                [
+                  "Binary: +",
+                  [
+                    [
+                      "left",
+                      [
+                        "Identifier: x",
+                        []
+                      ]
+                    ],
+                    [
+                      "right",
+                      [
+                        "Integer: 2",
+                        []
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "statement",
+          [
+            "Print",
+            [
+              [
+                "value",
+                [
+                  "Identifier: x",
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+]
